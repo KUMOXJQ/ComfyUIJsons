@@ -1,7 +1,7 @@
 {
   "3": {
     "inputs": {
-      "seed": 234521502850951,
+      "seed": 282552105875226,
       "steps": 12,
       "cfg": 2,
       "sampler_name": "dpmpp_2m_sde",
@@ -75,7 +75,7 @@
   },
   "16": {
     "inputs": {
-      "control_net_name": "InstantID.safetensors"
+      "control_net_name": "diffusion_pytorch_model.safetensors"
     },
     "class_type": "ControlNetLoader",
     "_meta": {
@@ -122,7 +122,7 @@
   },
   "75": {
     "inputs": {
-      "filename_prefix": "Ins",
+      "filename_prefix": "InsShuiMo",
       "images": [
         "8",
         0
@@ -137,7 +137,7 @@
     "inputs": {
       "lora_name": "SDXLShuiMoHuanJing.safetensors",
       "strength_model": 0.7000000000000001,
-      "strength_clip": 0.8,
+      "strength_clip": 0.7000000000000001,
       "model": [
         "4",
         0

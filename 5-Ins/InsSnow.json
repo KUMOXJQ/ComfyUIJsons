@@ -1,12 +1,12 @@
 {
   "3": {
     "inputs": {
-      "seed": 306952889085058,
-      "steps": 8,
+      "seed": 828837444801284,
+      "steps": 12,
       "cfg": 3,
-      "sampler_name": "ddpm",
+      "sampler_name": "dpmpp_2m_sde",
       "scheduler": "karras",
-      "denoise": 1,
+      "denoise": 0.9,
       "model": [
         "60",
         0
@@ -20,7 +20,7 @@
         2
       ],
       "latent_image": [
-        "5",
+        "78",
         0
       ]
     },
@@ -36,17 +36,6 @@
     "class_type": "CheckpointLoaderSimple",
     "_meta": {
       "title": "Checkpoint加载器(简易)"
-    }
-  },
-  "5": {
-    "inputs": {
-      "width": 1000,
-      "height": 1200,
-      "batch_size": 1
-    },
-    "class_type": "EmptyLatentImage",
-    "_meta": {
-      "title": "空Latent"
     }
   },
   "8": {
@@ -76,7 +65,7 @@
   },
   "13": {
     "inputs": {
-      "image": "微信图片_20240308194500.jpg",
+      "image": "Weixin Image_20240323172640 (6).jpg",
       "upload": "image"
     },
     "class_type": "LoadImage",
@@ -104,7 +93,7 @@
   },
   "39": {
     "inputs": {
-      "text": "cinema 4d render, one human, high contrast, vibrant and saturated, sico style, surrounded by magical glow,floating ice shards, snow crystals, cold, windy background, frozen natural landscape in background  cinematic atmosphere,highly detailed, sharp focus, intricate design, 3d, unreal engine, octane render, CG best quality, highres, photorealistic, dramatic lighting, artstation, concept art, cinematic, epic Steven Spielberg movie still, sharp focus, smoke, sparks, art by pascal blanche and greg rutkowski and repin, trending on artstation, hyperrealism painting, matte painting, 4k resolution",
+      "text": "cinema 4d render, high contrast, vibrant and saturated, sico style, surrounded by magical glow,floating ice shards, snow crystals, cold, windy background, frozen natural landscape in background  cinematic atmosphere,highly detailed, sharp focus, intricate design, 3d, unreal engine, octane render, CG best quality, highres, photorealistic, dramatic lighting, artstation, concept art, cinematic, epic Steven Spielberg movie still, sharp focus, smoke, sparks, art by pascal blanche and greg rutkowski and repin, trending on artstation, hyperrealism painting, matte painting, 4k resolution",
       "clip": [
         "4",
         1
@@ -118,7 +107,7 @@
   "40": {
     "inputs": {
       "text": [
-        "69",
+        "79",
         0
       ],
       "clip": [
@@ -163,23 +152,15 @@
       "negative": [
         "40",
         0
+      ],
+      "image_kps": [
+        "13",
+        0
       ]
     },
     "class_type": "ApplyInstantID",
     "_meta": {
       "title": "Apply InstantID"
-    }
-  },
-  "69": {
-    "inputs": {
-      "embedding": "negativeXL_D.safetensors",
-      "emphasis": 1,
-      "append": false,
-      "text": "nsfw, lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, artist name\n"
-    },
-    "class_type": "EmbeddingPicker",
-    "_meta": {
-      "title": "Embedding Picker"
     }
   },
   "75": {
@@ -193,6 +174,50 @@
     "class_type": "SaveImage",
     "_meta": {
       "title": "保存图像"
+    }
+  },
+  "77": {
+    "inputs": {
+      "pixels": [
+        "13",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE编码"
+    }
+  },
+  "78": {
+    "inputs": {
+      "upscale_method": "bicubic",
+      "width": 1000,
+      "height": 1200,
+      "crop": "center",
+      "samples": [
+        "77",
+        0
+      ]
+    },
+    "class_type": "LatentUpscale",
+    "_meta": {
+      "title": "Latent缩放"
+    }
+  },
+  "79": {
+    "inputs": {
+      "embedding": "negativeXL_D.safetensors",
+      "emphasis": 1,
+      "append": false,
+      "text": "(lowres, low quality, worst quality:1.2), (text:1.2), watermark, (frame:1.2), deformed, ugly, deformed eyes, blur, out of focus, blurry, deformed cat, deformed, photo, anthropomorphic cat, monochrome, photo, pet collar, gun, weapon, blue, 3d, drones, drone, buildings in background, green"
+    },
+    "class_type": "EmbeddingPicker",
+    "_meta": {
+      "title": "Embedding Picker"
     }
   }
 }

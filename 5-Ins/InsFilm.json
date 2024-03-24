@@ -1,12 +1,12 @@
 {
   "3": {
     "inputs": {
-      "seed": 1089578278992613,
+      "seed": 644062867690289,
       "steps": 14,
       "cfg": 3,
-      "sampler_name": "ddpm",
+      "sampler_name": "dpmpp_2m_sde",
       "scheduler": "karras",
-      "denoise": 1,
+      "denoise": 0.9,
       "model": [
         "60",
         0
@@ -20,7 +20,7 @@
         2
       ],
       "latent_image": [
-        "5",
+        "77",
         0
       ]
     },
@@ -76,7 +76,7 @@
   },
   "13": {
     "inputs": {
-      "image": "微信图片_20240308194500.jpg",
+      "image": "Weixin Image_20240323172640 (5).jpg",
       "upload": "image"
     },
     "class_type": "LoadImage",
@@ -188,7 +188,7 @@
   },
   "75": {
     "inputs": {
-      "filename_prefix": "FilmNoir",
+      "filename_prefix": "MonoFilm",
       "images": [
         "8",
         0
@@ -197,6 +197,38 @@
     "class_type": "SaveImage",
     "_meta": {
       "title": "保存图像"
+    }
+  },
+  "76": {
+    "inputs": {
+      "pixels": [
+        "13",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE编码"
+    }
+  },
+  "77": {
+    "inputs": {
+      "upscale_method": "bicubic",
+      "width": 1000,
+      "height": 1200,
+      "crop": "center",
+      "samples": [
+        "76",
+        0
+      ]
+    },
+    "class_type": "LatentUpscale",
+    "_meta": {
+      "title": "Latent缩放"
     }
   }
 }

@@ -1,16 +1,28 @@
 {
   "3": {
     "inputs": {
-      "seed": 694720212633123,
-      "steps": 14,
-      "cfg": 3,
-      "sampler_name": "ddpm",
+      "seed": 856041450264762,
+      "steps": 12,
+      "cfg": 4.3,
+      "sampler_name": "dpmpp_2m_sde",
       "scheduler": "karras",
       "denoise": 1,
-      "model": ["60", 0],
-      "positive": ["60", 1],
-      "negative": ["60", 2],
-      "latent_image": ["5", 0]
+      "model": [
+        "60",
+        0
+      ],
+      "positive": [
+        "60",
+        1
+      ],
+      "negative": [
+        "60",
+        2
+      ],
+      "latent_image": [
+        "77",
+        0
+      ]
     },
     "class_type": "KSampler",
     "_meta": {
@@ -26,21 +38,16 @@
       "title": "Checkpoint加载器(简易)"
     }
   },
-  "5": {
-    "inputs": {
-      "width": 1000,
-      "height": 1200,
-      "batch_size": 1
-    },
-    "class_type": "EmptyLatentImage",
-    "_meta": {
-      "title": "空Latent"
-    }
-  },
   "8": {
     "inputs": {
-      "samples": ["3", 0],
-      "vae": ["4", 2]
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
     },
     "class_type": "VAEDecode",
     "_meta": {
@@ -58,7 +65,7 @@
   },
   "13": {
     "inputs": {
-      "image": "微信图片_20240308194500 (1).jpg",
+      "image": "微信图片_20240308194455 (11).jpg",
       "upload": "image"
     },
     "class_type": "LoadImage",
@@ -87,7 +94,10 @@
   "39": {
     "inputs": {
       "text": "vibrant colorful, ink sketch|vector|2d colors, at nightfall, sharp focus, highly detailed, sharp focus, the clouds,colorful,ultra sharpness,upper body,dusk,dream light,",
-      "clip": ["4", 1]
+      "clip": [
+        "4",
+        1
+      ]
     },
     "class_type": "CLIPTextEncode",
     "_meta": {
@@ -96,8 +106,14 @@
   },
   "40": {
     "inputs": {
-      "text": ["69", 0],
-      "clip": ["4", 1]
+      "text": [
+        "69",
+        0
+      ],
+      "clip": [
+        "4",
+        1
+      ]
     },
     "class_type": "CLIPTextEncode",
     "_meta": {
@@ -109,13 +125,38 @@
       "weight": 0.8,
       "start_at": 0,
       "end_at": 1,
-      "instantid": ["11", 0],
-      "insightface": ["38", 0],
-      "control_net": ["16", 0],
-      "image": ["13", 0],
-      "model": ["4", 0],
-      "positive": ["39", 0],
-      "negative": ["40", 0]
+      "instantid": [
+        "11",
+        0
+      ],
+      "insightface": [
+        "38",
+        0
+      ],
+      "control_net": [
+        "16",
+        0
+      ],
+      "image": [
+        "13",
+        0
+      ],
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "39",
+        0
+      ],
+      "negative": [
+        "40",
+        0
+      ],
+      "image_kps": [
+        "13",
+        0
+      ]
     },
     "class_type": "ApplyInstantID",
     "_meta": {
@@ -127,7 +168,7 @@
       "embedding": "negativeXL_D.safetensors",
       "emphasis": 1,
       "append": false,
-      "text": "nsfw, lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, artist name\n"
+      "text": "(lowres, low quality, worst quality:1.2), (text:1.2), watermark, (frame:1.2), deformed, ugly, deformed eyes, blur, out of focus, blurry, deformed cat, deformed, photo, anthropomorphic cat, monochrome, photo, pet collar, gun, weapon, blue, 3d, drones, drone, buildings in background, green"
     },
     "class_type": "EmbeddingPicker",
     "_meta": {
@@ -136,12 +177,47 @@
   },
   "75": {
     "inputs": {
-      "filename_prefix": "VibrantColor",
-      "images": ["8", 0]
+      "filename_prefix": "Dusk",
+      "images": [
+        "8",
+        0
+      ]
     },
     "class_type": "SaveImage",
     "_meta": {
       "title": "保存图像"
+    }
+  },
+  "76": {
+    "inputs": {
+      "pixels": [
+        "13",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE编码"
+    }
+  },
+  "77": {
+    "inputs": {
+      "upscale_method": "bicubic",
+      "width": 1000,
+      "height": 1200,
+      "crop": "center",
+      "samples": [
+        "76",
+        0
+      ]
+    },
+    "class_type": "LatentUpscale",
+    "_meta": {
+      "title": "Latent缩放"
     }
   }
 }

@@ -1,12 +1,12 @@
 {
   "3": {
     "inputs": {
-      "seed": 368071846704228,
+      "seed": 763784136968765,
       "steps": 10,
-      "cfg": 3,
-      "sampler_name": "ddpm",
+      "cfg": 3.5,
+      "sampler_name": "dpmpp_2m_sde",
       "scheduler": "karras",
-      "denoise": 1,
+      "denoise": 0.99,
       "model": [
         "60",
         0
@@ -20,7 +20,7 @@
         2
       ],
       "latent_image": [
-        "5",
+        "78",
         0
       ]
     },
@@ -36,17 +36,6 @@
     "class_type": "CheckpointLoaderSimple",
     "_meta": {
       "title": "Checkpoint加载器(简易)"
-    }
-  },
-  "5": {
-    "inputs": {
-      "width": 1000,
-      "height": 1200,
-      "batch_size": 1
-    },
-    "class_type": "EmptyLatentImage",
-    "_meta": {
-      "title": "空Latent"
     }
   },
   "8": {
@@ -104,7 +93,7 @@
   },
   "39": {
     "inputs": {
-      "text": "solo",
+      "text": "",
       "clip": [
         "76",
         1
@@ -212,6 +201,38 @@
     "class_type": "LoraLoader",
     "_meta": {
       "title": "LoRA加载器"
+    }
+  },
+  "77": {
+    "inputs": {
+      "pixels": [
+        "13",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE编码"
+    }
+  },
+  "78": {
+    "inputs": {
+      "upscale_method": "bicubic",
+      "width": 1000,
+      "height": 1200,
+      "crop": "center",
+      "samples": [
+        "77",
+        0
+      ]
+    },
+    "class_type": "LatentUpscale",
+    "_meta": {
+      "title": "Latent缩放"
     }
   }
 }
