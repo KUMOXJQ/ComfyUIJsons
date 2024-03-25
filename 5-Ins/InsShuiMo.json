@@ -7,22 +7,10 @@
       "sampler_name": "dpmpp_2m_sde",
       "scheduler": "karras",
       "denoise": 0.6,
-      "model": [
-        "82",
-        0
-      ],
-      "positive": [
-        "82",
-        1
-      ],
-      "negative": [
-        "82",
-        2
-      ],
-      "latent_image": [
-        "84",
-        0
-      ]
+      "model": ["82", 0],
+      "positive": ["82", 1],
+      "negative": ["82", 2],
+      "latent_image": ["84", 0]
     },
     "class_type": "KSampler",
     "_meta": {
@@ -40,14 +28,8 @@
   },
   "8": {
     "inputs": {
-      "samples": [
-        "3",
-        0
-      ],
-      "vae": [
-        "4",
-        2
-      ]
+      "samples": ["3", 0],
+      "vae": ["4", 2]
     },
     "class_type": "VAEDecode",
     "_meta": {
@@ -94,10 +76,7 @@
   "39": {
     "inputs": {
       "text": "baixl-shuimo,holding sword,forest,ink wash painting,paint splatter,green theme,",
-      "clip": [
-        "78",
-        1
-      ]
+      "clip": ["78", 1]
     },
     "class_type": "CLIPTextEncode",
     "_meta": {
@@ -106,14 +85,8 @@
   },
   "40": {
     "inputs": {
-      "text": [
-        "79",
-        0
-      ],
-      "clip": [
-        "78",
-        1
-      ]
+      "text": ["79", 0],
+      "clip": ["78", 1]
     },
     "class_type": "CLIPTextEncode",
     "_meta": {
@@ -123,10 +96,7 @@
   "75": {
     "inputs": {
       "filename_prefix": "InsShuiMo",
-      "images": [
-        "8",
-        0
-      ]
+      "images": ["8", 0]
     },
     "class_type": "SaveImage",
     "_meta": {
@@ -138,14 +108,8 @@
       "lora_name": "SDXLShuiMoHuanJing.safetensors",
       "strength_model": 0.7000000000000001,
       "strength_clip": 0.7000000000000001,
-      "model": [
-        "4",
-        0
-      ],
-      "clip": [
-        "4",
-        1
-      ]
+      "model": ["4", 0],
+      "clip": ["4", 1]
     },
     "class_type": "LoraLoader",
     "_meta": {
@@ -171,38 +135,14 @@
       "start_at": 0,
       "end_at": 1,
       "noise": 0,
-      "instantid": [
-        "11",
-        0
-      ],
-      "insightface": [
-        "38",
-        0
-      ],
-      "control_net": [
-        "16",
-        0
-      ],
-      "image": [
-        "13",
-        0
-      ],
-      "model": [
-        "78",
-        0
-      ],
-      "positive": [
-        "39",
-        0
-      ],
-      "negative": [
-        "40",
-        0
-      ],
-      "image_kps": [
-        "13",
-        0
-      ]
+      "instantid": ["11", 0],
+      "insightface": ["38", 0],
+      "control_net": ["16", 0],
+      "image": ["13", 0],
+      "model": ["78", 0],
+      "positive": ["39", 0],
+      "negative": ["40", 0],
+      "image_kps": ["13", 0]
     },
     "class_type": "ApplyInstantIDAdvanced",
     "_meta": {
@@ -211,14 +151,8 @@
   },
   "83": {
     "inputs": {
-      "pixels": [
-        "13",
-        0
-      ],
-      "vae": [
-        "4",
-        2
-      ]
+      "pixels": ["13", 0],
+      "vae": ["4", 2]
     },
     "class_type": "VAEEncode",
     "_meta": {
@@ -228,13 +162,10 @@
   "84": {
     "inputs": {
       "upscale_method": "bilinear",
-      "width": 896,
-      "height": 1344,
+      "width": 1000,
+      "height": 1200,
       "crop": "center",
-      "samples": [
-        "83",
-        0
-      ]
+      "samples": ["83", 0]
     },
     "class_type": "LatentUpscale",
     "_meta": {
