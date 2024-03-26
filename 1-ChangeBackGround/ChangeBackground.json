@@ -1,0 +1,421 @@
+{
+  "1": {
+    "inputs": {
+      "seed": 1022095431452937,
+      "steps": 14,
+      "cfg": 4,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "karras",
+      "denoise": 0.7000000000000001,
+      "model": [
+        "59",
+        0
+      ],
+      "positive": [
+        "3",
+        0
+      ],
+      "negative": [
+        "4",
+        0
+      ],
+      "latent_image": [
+        "37",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "2": {
+    "inputs": {
+      "ckpt_name": "majicmixRealistic_v7.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Checkpoint加载器(简易)"
+    }
+  },
+  "3": {
+    "inputs": {
+      "text": [
+        "60",
+        0
+      ],
+      "clip": [
+        "59",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码器"
+    }
+  },
+  "4": {
+    "inputs": {
+      "text": [
+        "42",
+        0
+      ],
+      "clip": [
+        "59",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码器"
+    }
+  },
+  "12": {
+    "inputs": {
+      "samples": [
+        "1",
+        0
+      ],
+      "vae": [
+        "59",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "13": {
+    "inputs": {
+      "images": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "预览图像"
+    }
+  },
+  "24": {
+    "inputs": {
+      "image": "刘伟图片_百度百科 (2).png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "加载图像"
+    }
+  },
+  "37": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "resize_source": false,
+      "destination": [
+        "49",
+        0
+      ],
+      "source": [
+        "38",
+        0
+      ],
+      "mask": [
+        "40",
+        0
+      ]
+    },
+    "class_type": "LatentCompositeMasked",
+    "_meta": {
+      "title": "Latent遮罩复合"
+    }
+  },
+  "38": {
+    "inputs": {
+      "pixels": [
+        "45",
+        0
+      ],
+      "vae": [
+        "2",
+        2
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE编码"
+    }
+  },
+  "39": {
+    "inputs": {
+      "transparency": true,
+      "model": "u2net_human_seg",
+      "post_processing": false,
+      "only_mask": true,
+      "alpha_matting": false,
+      "alpha_matting_foreground_threshold": 240,
+      "alpha_matting_background_threshold": 10,
+      "alpha_matting_erode_size": 10,
+      "background_color": "none",
+      "images": [
+        "45",
+        0
+      ]
+    },
+    "class_type": "Image Rembg (Remove Background)",
+    "_meta": {
+      "title": "移除背景"
+    }
+  },
+  "40": {
+    "inputs": {
+      "channel": "blue",
+      "image": [
+        "39",
+        0
+      ]
+    },
+    "class_type": "ImageToMask",
+    "_meta": {
+      "title": "图像到遮罩"
+    }
+  },
+  "41": {
+    "inputs": {
+      "images": [
+        "39",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "预览图像"
+    }
+  },
+  "42": {
+    "inputs": {
+      "embedding": "negativeXL_D.safetensors",
+      "emphasis": 1,
+      "append": false,
+      "text": "NSFw,watermark,"
+    },
+    "class_type": "EmbeddingPicker",
+    "_meta": {
+      "title": "Embedding Picker"
+    }
+  },
+  "45": {
+    "inputs": {
+      "upscale_method": "bicubic",
+      "width": 1000,
+      "height": 1200,
+      "crop": "center",
+      "image": [
+        "24",
+        0
+      ]
+    },
+    "class_type": "ImageScale",
+    "_meta": {
+      "title": "图像缩放"
+    }
+  },
+  "46": {
+    "inputs": {
+      "lora_name": "cuz.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "2",
+        0
+      ],
+      "clip": [
+        "2",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "LoRA加载器"
+    }
+  },
+  "47": {
+    "inputs": {
+      "text": "building,school,day,master piece,best quatity,city,look at the front horizontally,",
+      "clip": [
+        "46",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码器"
+    }
+  },
+  "48": {
+    "inputs": {
+      "text": [
+        "50",
+        0
+      ],
+      "clip": [
+        "46",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码器"
+    }
+  },
+  "49": {
+    "inputs": {
+      "seed": 829035444752053,
+      "steps": 14,
+      "cfg": 7,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "karras",
+      "denoise": 1,
+      "model": [
+        "46",
+        0
+      ],
+      "positive": [
+        "47",
+        0
+      ],
+      "negative": [
+        "48",
+        0
+      ],
+      "latent_image": [
+        "51",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "50": {
+    "inputs": {
+      "embedding": "negativeXL_D.safetensors",
+      "emphasis": 1,
+      "append": false,
+      "text": ""
+    },
+    "class_type": "EmbeddingPicker",
+    "_meta": {
+      "title": "Embedding Picker"
+    }
+  },
+  "51": {
+    "inputs": {
+      "width": 1000,
+      "height": 1200,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "空Latent"
+    }
+  },
+  "52": {
+    "inputs": {
+      "samples": [
+        "49",
+        0
+      ],
+      "vae": [
+        "2",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "53": {
+    "inputs": {
+      "images": [
+        "52",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "预览图像"
+    }
+  },
+  "57": {
+    "inputs": {
+      "samples": [
+        "37",
+        0
+      ],
+      "vae": [
+        "2",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "58": {
+    "inputs": {
+      "images": [
+        "57",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "预览图像"
+    }
+  },
+  "59": {
+    "inputs": {
+      "ckpt_name": "SDXL炫彩二次元_1.0.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Checkpoint加载器(简易)"
+    }
+  },
+  "60": {
+    "inputs": {
+      "model": "wd-swinv2-tagger-v3",
+      "threshold": 0.35,
+      "character_threshold": 0.85,
+      "replace_underscore": false,
+      "trailing_comma": false,
+      "exclude_tags": "",
+      "tags": "solo, looking_at_viewer, shirt, black_hair, long_sleeves, 1boy, closed_mouth, jacket, white_shirt, upper_body, male_focus, outdoors, sky, collared_shirt, day, black_eyes, black_jacket, blue_sky, tree, dress_shirt, facial_hair, crossed_arms, formal, suit, building, city, realistic, asian, photorealistic",
+      "image": [
+        "57",
+        0
+      ]
+    },
+    "class_type": "WD14Tagger|pysssss",
+    "_meta": {
+      "title": "WD14反推提示词"
+    }
+  },
+  "61": {
+    "inputs": {
+      "text": [
+        "60",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "展示文本"
+    }
+  }
+}
